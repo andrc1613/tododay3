@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Day3</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'todos.css' %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+    </style>    
+</head>
+<body class="bg">
+    <h1 class="head" style="color: white;font-size: 50px;">Simple To Do Lists</h1>
+    <ul class="list">
+        {% for todo_item in all_items %}
+        <li style="font-family: 'Montserrat', sans-serif; color: white;">{{ todo_item.content }}</li>
+        <form action="/deleteTodo/{{todo_item.id}}/" method="POST">{%csrf_token%}
+            <input type="submit" style="font-family: 'Montserrat', sans-serif;display: inline; color:red" value="Delete">
+        </form>
+        {% endfor %}
+    </ul>
+        <form class="add" action="/addTodo/" method="POST">{%csrf_token%}
+        <input type="text" style="font-family: 'Montserrat', sans-serif;" name="content">
+        <input type="submit" style="font-family: 'Montserrat', sans-serif; color: green;" value="Add">
+        </form>
+</body>
+</html>

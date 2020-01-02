@@ -1,0 +1,20 @@
+.head{
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 125px;
+
+}
+.add{
+    justify-content: center;
+    display: flex;
+}
+.list{
+    padding-left: 350px;
+}
+.bg{
+    background-image: url('image.jpeg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
